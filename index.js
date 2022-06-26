@@ -125,3 +125,52 @@ let populationLessThan40 = populations.filter((populations) =>{
         return populations
     }
 })
+
+// Sets in javascript
+// Set is a type of collecions that stores unique values
+// represented by
+
+let setUserId = new Set()
+
+// Examples
+
+let mary = {name : "mary", age: 20}
+let john = {name : "john", age: 20}
+
+setUserId.add(mary)
+// numbers can be stored.
+
+setUserId.add(100)
+
+// arrays can be stored
+
+setUserId.add([23, "fantasy", "franchise"])
+
+// whenever an object or value is entered twice in a set,it get ignored by the compiler
+// it does not accept duplicate value
+ setUserId.add(john)
+
+ // to check the size of a set
+ console.log(setUserId.size)
+
+ // to check if a valus is in the set
+ console.log(setUserId.has(100))
+
+ // to delete
+ console.log(setUserId.has(mary))
+
+ // it is iterable
+
+ for (let user of setUserId){
+    console.log(user)
+ }
+
+ // Add
+ setUserId.add("Darl")
+
+ // to convert to an array
+ let userArry = Array.from(setUserId)
+
+console.log(setUserId)
+
+console.log(userArry)
