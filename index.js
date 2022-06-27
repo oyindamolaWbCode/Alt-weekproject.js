@@ -228,3 +228,15 @@ const userProperty = {
 }
 
 getUserInfo(userProperty);
+
+//DOM
+// Document Object Model, or DOM for short, represents all web page content as objects that can be modified.
+// The document object is the main “entry point” to the page. We can change or create anything on the page using it.
+// Properties and methods are described in the specification: DOM Living Standard.
+// An HTML/XML document is represented inside the browser as the DOM tree.
+// DOM is used to interact with the HTML
+// the page in which the HTML is being displayed is called the window
+
+//BOM
+//Browser Object Model
+//they are feactures provided by those i=that made the browsers
