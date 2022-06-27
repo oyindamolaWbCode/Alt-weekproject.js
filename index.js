@@ -1,8 +1,9 @@
 
 
-     let design = document.getElementById("wordes").style.color ="magenta"
-    let designFont = document.getElementById("wordes").style.fontFamily ="courier"
-    let designSize = document.getElementById("wordes").style.fontSize ="50px"
+     let design = document.getElementById("wordes").style.color ="magenta";
+    let designFont = document.getElementById("wordes").style.fontFamily ="courier";
+    let designSize = document.getElementById("wordes").style.fontSize ="50px";
+    let designMarginTop =document.getElementById("wordes").style.marginTop = "50px"
   
 
 // How to represent Arrays
@@ -174,3 +175,56 @@ setUserId.add([23, "fantasy", "franchise"])
 console.log(setUserId)
 
 console.log(userArry)
+
+//Destructuring Assignment
+// it is a special syntax that allows to "unpack" arrays or objects into a bunch of variable conviently
+
+let names = ["Temison", "Gideon", "Gedoni", "temiloluwa", "shanty", "christabel"]
+
+//it gets the varible on the first
+let [firstname] = names
+
+console.log(firstname);
+
+// to get any value in the arrays
+
+let [, , , name4] = names
+console.log(name4)
+
+// the use of rest get the remains of the values
+// after a variable has been unpack, the remaining is pack into variables
+ 
+let [, name2, ...restOfNames] = names
+console.log(name2);
+console.log(restOfNames);
+
+// destructuring objects
+//
+let settings = {theme : "Dark mode", FontSize : "20px", fontFamily: "courier"} 
+
+let {theme, fontSize, fontFamily} = settings
+
+console.log(settings);// get only one factor in the object.
+
+console.log(fontFamily);
+
+//to get values multiple times
+
+let { theme: mytheme} = settings
+let {theme: themeness} = settings
+
+console.log(mytheme);
+console.log(themeness);
+
+//Destructuing in functions
+function getUserInfo({name, height}){
+    console.log(name);
+    console.log(height);
+}
+
+const userProperty = {
+    name: "franklin",
+    height: 6.9
+}
+
+getUserInfo(userProperty);
