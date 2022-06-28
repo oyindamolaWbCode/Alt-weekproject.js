@@ -1,11 +1,5 @@
 
 
-     let design = document.getElementById("wordes").style.color ="magenta";
-    let designFont = document.getElementById("wordes").style.fontFamily ="courier";
-    let designSize = document.getElementById("wordes").style.fontSize ="50px";
-    let designMarginTop =document.getElementById("wordes").style.marginTop = "50px"
-  
-
 // How to represent Arrays
 
 let user = new Array(); //using the class key word
@@ -240,3 +234,43 @@ getUserInfo(userProperty);
 //BOM
 //Browser Object Model
 //they are feactures provided by those i=that made the browsers
+
+//Display the title
+alert(document.title);
+
+// innnerHTML is also known as getting the body
+console.log(document.body);
+
+//childnodes returns all the child node you have in the body
+console.log(document.body.childNodes);
+
+// list all the children in the body
+console.log(document.body.children);
+
+// gets the firstchild in the element
+console.log(document.body.firstChild);
+
+//loop through each tag of the nodes
+for(let i = 0; i < document.body.childNodes.length; i++ ){
+    console.log(document.body.childNodes[i]);
+}
+
+//DOM NAVIGATION AND SEARCHING
+//to get previous siblings of the body tag
+console.log("Next siblings: ", document.head.nextElementSibling);
+
+//same goes with prevoius siblings
+
+//DOM searching Method
+//getElementByid
+//querySelector {using css properties to select}
+//querySelectorAll {returns the kind of selector you specify}
+
+let design = document.getElementById("wordes").style.color ="magenta";
+let designFont = document.getElementById("wordes").style.fontFamily ="courier";
+let designSize = document.getElementById("wordes").style.fontSize ="50px";
+let designMarginTop =document.getElementById("wordes").style.marginTop = "50px"
+
+let iners = document.getElementById("inner").style.color ="purple";
+
+iners.innerText += document.getElementById("inner").innerHTML = "Contemporary Quest"
