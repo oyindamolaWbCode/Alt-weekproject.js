@@ -348,3 +348,72 @@ someActions.addEventListener("click", (e)=>{
 someActions.addEventListener("mouseenter", () =>{
     alert("You've entered the button")
 });
+
+
+//WEEK 3
+//CALL BACKS
+//A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+// This execution may be immediate as in a synchronous callback, or it might happen at a later point in time as in an asynchronous callback.
+// What if the script loading fails? Our callback should be able to react on that.
+// Multiple asynchronous call back can result in the callback hell. 
+
+// Callbacks
+// Many functions are provided by JavaScript host environments that allow you to schedule asynchronous actions. In other words, actions that we initiate now, but they finish later. For instance, one such function is the setTimeout function.
+// Luckily, there are other ways to avoid such pyramids. One of the best ways is to use “promises”, described in the next slide.
+
+//Multiple callbacks can result in call back hell
+
+//PROMISES
+
+// The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+// A Promise object returns a promise to supply the resulting value at some point in the future. So we can wait for it to keep the promise
+// A promise can be in any of these state: 
+// pending: initial state, neither fulfilled nor rejected.
+// fulfilled: meaning that the operation was completed successfully.
+// rejected: meaning that the operation failed.
+
+// A promise call cleanly handle multiple asynchronous operations.
+
+// A promise is a cleaner way to handle asynchronous operations.
+
+function getData(url) {
+    return new Promise((resolve, reject) => {
+        if (!url) {
+            reject("No URL provided");
+        }
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.send();
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                resolve(xhr.responseText);
+            } else {
+                reject(xhr.status);
+            }            
+
+        };
+    });
+}
+
+const url = prompt("Enter a URL");
+
+getData(url)
+//.then (as soon as it is successful run every code inside the then handler)
+    .then((result) => {
+        console.log("Success!"); // Runs on success
+        console.log(result);
+    }).catch(status => {
+        console.log(`An error with status code ${status} occurred: `); // Runs on error
+    });
+
+ // async/await are special syntax to work with promises in a more comfortable fashion.
+// The word “async” before a function means one simple thing: a function always returns a promise. Other values are wrapped in a resolved promise automatically.
+// The keyword await makes JavaScript wait until that promise settles and returns its result.
+
+// await only works inside an async function. If we try to use await in a non-async function, there would be a syntax error:
+// Show example of converting the chapter Promises chaining and rewrite it using async/await:
+// If a promise resolves normally, then await promise returns the result. But in the case of a rejection, it throws the error, just as if there were a throw statement at that line. So handle errors with try..catch
+// When we use async/await, we rarely need .then, because await handles the waiting for us. And we can use a regular try..catch instead of .catch. That’s usually (but not always) more convenient.
+// But at the top level of the code, when we’re outside any async function, we’re syntactically unable to use await, so it’s a normal practice to add .then/catch to handle the final result or falling-through error, like in the line (*) of the example above.
+
