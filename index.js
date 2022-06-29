@@ -376,36 +376,36 @@ someActions.addEventListener("mouseenter", () =>{
 
 // A promise is a cleaner way to handle asynchronous operations.
 
-function getData(url) {
-    return new Promise((resolve, reject) => {
-        if (!url) {
-            reject("No URL provided");
-        }
+// function getData(url) {
+//     return new Promise((resolve, reject) => {
+//         if (!url) {
+//             reject("No URL provided");
+//         }
 
-        const xhr = new XMLHttpRequest();
-        xhr.open("GET", url);
-        xhr.send();
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                resolve(xhr.responseText);
-            } else {
-                reject(xhr.status);
-            }            
+//         const xhr = new XMLHttpRequest();
+//         xhr.open("GET", url);
+//         xhr.send();
+//         xhr.onload = function () {
+//             if (xhr.status === 200) {
+//                 resolve(xhr.responseText);
+//             } else {
+//                 reject(xhr.status);
+//             }            
 
-        };
-    });
-}
+//         };
+//     });
+// }
 
-const url = prompt("Enter a URL");
+// const url = prompt("Enter a URL");
 
-getData(url)
-//.then (as soon as it is successful run every code inside the then handler)
-    .then((result) => {
-        console.log("Success!"); // Runs on success
-        console.log(result);
-    }).catch(status => {
-        console.log(`An error with status code ${status} occurred: `); // Runs on error
-    });
+// getData(url)
+// //.then (as soon as it is successful run every code inside the then handler)
+//     .then((result) => {
+//         console.log("Success!"); // Runs on success
+//         console.log(result);
+//     }).catch(status => {
+//         console.log(`An error with status code ${status} occurred: `); // Runs on error
+//     });
 
  // async/await are special syntax to work with promises in a more comfortable fashion.
 // The word “async” before a function means one simple thing: a function always returns a promise. Other values are wrapped in a resolved promise automatically.
@@ -417,3 +417,98 @@ getData(url)
 // When we use async/await, we rarely need .then, because await handles the waiting for us. And we can use a regular try..catch instead of .catch. That’s usually (but not always) more convenient.
 // But at the top level of the code, when we’re outside any async function, we’re syntactically unable to use await, so it’s a normal practice to add .then/catch to handle the final result or falling-through error, like in the line (*) of the example above.
 
+//OOP (OBJECTS ORIENTED PROGRAMMING)
+
+class mathHelper{
+
+    add(n1, n2){
+        return n1 + n2
+    }
+
+    sub(n1, n2){
+        return n1 - n2
+    }
+
+    div(n1, n2){
+        console.log(`Dividing the value of ${n1} and ${n2}:`)
+        return n1 / n2
+    }
+}
+
+const MathHelperS = new mathHelper()
+
+let resAdd = MathHelperS.add(20, 30)
+let resSub = MathHelperS.sub(20, 30)
+let resDiv = MathHelperS.div(20, 30)
+
+console.log(resAdd)
+console.log(resSub)
+console.log(resDiv)
+
+// A construction is a function tha will run anytime a new instances is crated from a class
+
+
+//A class with constructor
+class MathHelper {
+
+    constructor(num1, num2) {
+        //Code in constructoe always runs before creating the instance
+        // check if num1 and num2 are numbers
+        if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+            throw new Error('Arguments must be numbers');
+        }
+
+        this.num1 = num1; //this => Reference to the instance
+        this.num2 = num2;
+    }
+
+    add() {
+        return this.num1 + this.num2;
+    }
+
+    subtract() {
+        return this.num1 - this.num2;
+    }
+
+    multiply() {
+        return this.num1 * this.num2;
+    }
+
+    divide() {
+        return this.num1 / this.num2;
+    }
+
+    modulo() {
+        return this.num1 % this.num2;
+    }
+
+    power() {
+        return this.num1 ** this.num2;
+    }
+}
+
+// Create an instance from the class
+const mathHelper1 = new MathHelper(20, 10);
+
+//use the instance
+console.log(mathHelper1.add());
+console.log(mathHelper1.subtract());
+console.log(mathHelper1.multiply());
+console.log(mathHelper1.divide());
+console.log(mathHelper1.modulo());
+console.log(mathHelper1.power());
+
+
+// Create another instance from the class
+const mathHelper2 = new MathHelper(10, 20);
+
+console.log(mathHelper2.add());
+console.log(mathHelper2.subtract());
+console.log(mathHelper2.multiply());
+console.log(mathHelper2.divide());
+console.log(mathHelper2.modulo());
+console.log(mathHelper2.power());
+
+// Try to create an instance from the class with wrong arguments
+const mathHelper3 = new MathHelper(10, 'girl');
+mathHelper3.add()
