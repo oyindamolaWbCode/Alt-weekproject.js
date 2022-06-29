@@ -274,3 +274,77 @@ let designMarginTop =document.getElementById("wordes").style.marginTop = "50px"
 let iners = document.getElementById("inner").style.color ="purple";
 
 iners.innerText += document.getElementById("inner").innerHTML = "Contemporary Quest"
+
+//DOM modification
+//You can create element like the way it is inside HTML cn also be done in JavaScript
+
+const createNew = document.createElement("div")
+createNew.innerText = "This is javaScript created element"
+createNew.style.color="brown"
+
+//the element wouldnt show because it has not been append to the body
+//this add the element to the end of the body
+document.body.append(createNew)
+
+//Removing an element
+// const rmoveElment = document.querySelector("h1");
+// rmoveElment.remove()
+
+//BOM
+//represent additional properties or feaures provided by the browser
+//EXAMPLES: (1) navigator (2) location object
+alert(location.href)
+
+//to change the location of the page
+if(confirm("Open Google ?")){
+    location.href= "https://google.com"; //redirect to google page
+}
+
+//navigator can tell you details about your browser
+//get browser name
+alert("you are using " + navigator.userAgent);
+
+//get creator of browser
+alert("You are using an engine created by" + navigator.vendor);
+
+//get language
+alert("You are using " + navigator.language);
+
+//get user location
+navigator.geolocation.getCurrentPosition((position) =>{
+    alert("You are at: " +position.coords.latitude + ", " + position.coords.longitude);
+});
+
+//More on Mozilla.com
+
+// An event is a signal that something has happened. All DOM nodes generate such signals (but events are not limited to DOM).
+// The following events can be tracked in the DOM:
+// Mouse events: E.g click, mouseover, mouseup
+// Keyboard events: E.g keydown, keyup
+// Form element events: E.g submit, focus
+// Document events: E.g DOMContentLoaded
+// CSS events: E.g transitions
+// Almost all the time, the second syntax is used. We can supply initial elements in the brackets:
+// Array elements are numbered, starting with zero. We can get an element by its number in square brackets:
+// An array can store elements of any type. Objects, functions, etc
+// To react on events we can assign a handler – a function that runs in case of an event.
+// We can set event handlers using:
+// HTML Attributes: A handler can be set in HTML with an attribute named on<event>.
+// DOM property: We can assign a handler using a DOM property on<event>.
+// Methods event listeners. Explained in next slide
+// Handlers are a way to run JavaScript code in case of user actions. There are several ways to assign a handler. Let’s see them, starting from the simplest one.
+// For instance, to assign a click handler for an input, we can use onclick, like here: On mouse click, the code inside onclick runs.
+// Please note that inside onclick we use single quotes, because the attribute itself is in double quotes. If we forget that the code is inside the attribute and use double quotes inside, like this: onclick=”alert(“Click!”)”, then it won’t work right.
+// An HTML-attribute is not a convenient place to write a lot of code, so we’d better create a JavaScript function and call it there.
+// As we know, HTML attribute names are not case-sensitive, so ONCLICK works as well as onClick and onCLICK… But usually attributes are lowercased: onclick.
+// If the handler is assigned using an HTML-attribute then the browser reads it, creates a new function from the attribute content and writes it to the DOM property.
+
+const someActions = document.getElementById("clicks")
+someActions.addEventListener("click", (e)=>{
+    console.log(e.target.id);
+    console.log("coordinates: " + e.clientX + ":" + e.clientY)
+})
+
+someActions.addEventListener("mouseenter", () =>{
+    alert("You've entered the button")
+});
